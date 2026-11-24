@@ -21,7 +21,7 @@ public class ConsultasEjemplo {
     }
     public List<Object[]> numeroPedidosPorCliente(){
         String jpql="""
-                 SELECT c.nombre, COUNT(p) FROM Cliente c 
+                 SELECT c.nombre, COUNT(p) FROM Cliente c
                  LEFT JOIN c.pedidos p GROUP BY c.id, c.nombre ORDER BY c.nombre
                  """;
         return em.createQuery(jpql,Object[].class).getResultList();}
